@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_flutter/components/categories.dart';
 import 'package:shop_flutter/constants.dart';
+import 'package:shop_flutter/screen/details/detail.dart';
 import '../moduls/product.dart';
 
 class Body extends StatelessWidget {
@@ -35,7 +36,13 @@ class Body extends StatelessWidget {
                 itemCount: products.length,
                 itemBuilder: (BuildContext context, int index) {
                   Product product = products[index];
-                  return Container(
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (BuildContext context) {
+                        return DetailScreen(product: product);
+                      }));
+                    },
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -55,13 +62,17 @@ class Body extends StatelessWidget {
                         Container(
                           child: Text(
                             product.title,
-                            style: TextStyle(color: textColorLight,fontSize: 18),
+                            style:
+                                TextStyle(color: textColorLight, fontSize: 18),
                           ),
                         ),
                         Container(
                           child: Text(
                             product.price.toString(),
-                            style: TextStyle(color: textColor,fontWeight: FontWeight.bold,fontSize: 15),
+                            style: TextStyle(
+                                color: textColor,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15),
                           ),
                         ),
                       ],
