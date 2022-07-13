@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_flutter/components/categories.dart';
+import 'package:shop_flutter/constants.dart';
 import '../moduls/product.dart';
 
 class Body extends StatelessWidget {
@@ -36,16 +37,33 @@ class Body extends StatelessWidget {
                   Product product = products[index];
                   return Container(
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Expanded(
                           child: Container(
+                            padding: EdgeInsets.all(10),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               color: product.color,
                             ),
-                            
+                            child: Hero(
+                              tag: "${product.id}",
+                              child: Image.asset(product.image),
+                            ),
                           ),
-                        )
+                        ),
+                        Container(
+                          child: Text(
+                            product.title,
+                            style: TextStyle(color: textColorLight,fontSize: 18),
+                          ),
+                        ),
+                        Container(
+                          child: Text(
+                            product.price.toString(),
+                            style: TextStyle(color: textColor,fontWeight: FontWeight.bold,fontSize: 15),
+                          ),
+                        ),
                       ],
                     ),
                   );
