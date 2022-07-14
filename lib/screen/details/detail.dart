@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../components/colorAndSize.dart';
 import '../../components/colorAndSize.dart';
+import '../../components/counterwithfavbtn.dart';
 import '../../components/description.dart';
 import '../../constants.dart';
 import '../../moduls/product.dart';
@@ -73,7 +74,13 @@ class DetailScreen extends StatelessWidget {
                       SizedBox(
                         height: 50,
                       ),
-                      Description(product: product,),
+                      Description(
+                        product: product,
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      CounterWithFavBTn(product: product,),
                     ],
                   ),
                 )
