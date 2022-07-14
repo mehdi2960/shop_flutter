@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import '../../components/colorAndSize.dart';
 import '../../constants.dart';
 import '../../moduls/product.dart';
 
@@ -9,6 +10,7 @@ class DetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: product.color,
       appBar: AppBar(
@@ -42,6 +44,35 @@ class DetailScreen extends StatelessWidget {
             width: 10,
           ),
         ],
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: size.height,
+              child: Stack(children: [
+                Container(
+                  margin: EdgeInsets.only(top: size.height * 0.3),
+                  padding: EdgeInsets.only(right: 10, left: 20,top: size.height*0.12),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20),
+                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      ColorAndSize(
+                        product: product,
+                      ),
+                    ],
+                  ),
+                )
+              ]),
+            )
+          ],
+        ),
       ),
     );
   }
