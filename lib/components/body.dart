@@ -62,17 +62,20 @@ class Body extends StatelessWidget {
                         Container(
                           child: Text(
                             product.title,
-                            style:
-                                TextStyle(color: textColorLight, fontSize: 18),
+                            style: TextStyle(
+                              color: textColorLight,
+                              fontSize: 18,
+                            ),
                           ),
                         ),
                         Container(
                           child: Text(
                             product.price.toString(),
                             style: TextStyle(
-                                color: textColor,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15),
+                              color: textColor,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
+                            ),
                           ),
                         ),
                       ],

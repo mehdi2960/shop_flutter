@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../components/colorAndSize.dart';
+import '../../components/colorAndSize.dart';
+import '../../components/description.dart';
 import '../../constants.dart';
 import '../../moduls/product.dart';
 
@@ -53,7 +55,8 @@ class DetailScreen extends StatelessWidget {
               child: Stack(children: [
                 Container(
                   margin: EdgeInsets.only(top: size.height * 0.3),
-                  padding: EdgeInsets.only(right: 10, left: 20,top: size.height*0.12),
+                  padding: EdgeInsets.only(
+                      right: 10, left: 20, top: size.height * 0.12),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
@@ -62,10 +65,15 @@ class DetailScreen extends StatelessWidget {
                     ),
                   ),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ColorAndSize(
                         product: product,
                       ),
+                      SizedBox(
+                        height: 50,
+                      ),
+                      Description(product: product,),
                     ],
                   ),
                 )
